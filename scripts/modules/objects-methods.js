@@ -1,5 +1,5 @@
-import { filt, random } from "./arrays-method";
-import { names } from "./user-names";
+import { random } from "./arrays-method";
+import { names } from "../helpers/user-names";
 
 
 const users = [{
@@ -39,13 +39,13 @@ const getRandomUser = () => {
 
 const getRandomUsers = (maxUsers) => {
     const arrayUsers = []
-    
+
     while(maxUsers > arrayUsers.length) {
         arrayUsers.push(getRandomUser())
     }
 
     return arrayUsers
-    
+
 }
 console.log('Массив случайных пользователей: ', getRandomUsers(5))
 
@@ -59,3 +59,34 @@ const usersWithId = getRandomUsers(10).map((elementArr) => {
 })
 
 console.log('Массив случайных пользователей с ID: ', usersWithId )
+
+const randomUsersOrderId = getRandomUsers(10).map((elementArr, id) => {
+    return {
+        firstName: elementArr.firstName,
+        lastName: elementArr.lastName,
+        id: id
+    }
+})
+
+console.log('Случайные пользователи с ид по порядку: ', randomUsersOrderId)
+
+const userOne = randomUsersOrderId.find((elem) => {
+    if(elem.id === 0) {
+        return true
+    }
+})
+
+console.log('Первый пользователь из массива', userOne)
+
+const findUser = (id) => {
+    return  randomUsersOrderId.find((elem) => {
+        if(elem.id === id) {
+            return true
+        }
+    })
+}
+
+console.log('Поиск пользователя по ID из массива', findUser(6))
+
+
+export { findUser }
