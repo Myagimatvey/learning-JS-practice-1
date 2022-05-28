@@ -1,20 +1,23 @@
 <template>
-  <p class="greeting">{{ greeting }}</p>
+  <users-list />
 </template>
 
 <script>
+import UsersList from './componets/users-list.vue';
+
 export default {
   data() {
     return {
       greeting: 'Привет всем!'
     }
+  },
+  components: {
+    UsersList
   }
 }
+
 </script>
 
 <style>
-.greeting {
-  color: red;
-  font-weight: bold;
-}
+
 </style>

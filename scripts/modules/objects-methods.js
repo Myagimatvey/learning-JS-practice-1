@@ -89,4 +89,4 @@ const findUser = (id) => {
 console.log('Поиск пользователя по ID из массива', findUser(6))
 
 
-export { findUser }
+export { findUser, getRandomUsers, randomUsersOrderId }
